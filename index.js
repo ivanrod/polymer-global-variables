@@ -2,19 +2,30 @@
 
 (function() {
     window.app = window.app || {};
-    app.globals = {};
-    app.elementInstances = [];
+
+    app.globalsManager = {
+        globals: {},
+        elementInstances: [],
+
+        set: function(key, value) {
+            this.globals[key] = value;
+
+            for (var i in this.elementInstances) {
+                this.elementInstances[i].set('globals.' + key, value);
+            }
+        }
+    };
 
     var originalConfigureProperties = Polymer.Base._configureProperties;
 
     Polymer.Base._addFeature({
         _configureProperties: function(properties, config) {
-            app.elementInstances.push(this);
+            app.globalsManager.elementInstances.push(this);
 
             if (properties) {
                 properties.globals = {
                     type: Object,
-                    value: app.globals
+                    value: app.globalsManager.globals
                 };
             }
 
@@ -22,14 +33,4 @@
         }
 
     });
-
-    app.globalsManager = {
-        set: function(key, value) {
-            app.globals[key] = value;
-
-            for (var i in app.elementInstances) {
-                app.elementInstances[i].set('globals.' + key, value);
-            }
-        }
-    };
 })();
