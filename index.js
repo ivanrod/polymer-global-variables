@@ -1,26 +1,32 @@
 'use strict';
 
 (function() {
+    if (!Polymer || !Polymer.Base) {
+        console.warn('Polymer is not loaded yet. polymer-global-variables cant be used.')
+    }
+
     var __configureProperties = Polymer.Base._configureProperties;
 
     window.app = window.app || {};
 
     app.globalsManager = {
         globals: {},
-        elementInstances: [],
+        elementsInstances: [],
 
         set: function(key, value) {
             this.globals[key] = value;
 
-            for (var i in this.elementInstances) {
-                this.elementInstances[i].set('globals.' + key, value);
+            for (var i in this.elementsInstances) {
+                this.elementsInstances[i].set('globals.' + key, value);
             }
+
+            return this.globals;
         }
     };
 
     Polymer.Base._addFeature({
         _configureProperties: function(properties, config) {
-            app.globalsManager.elementInstances.push(this);
+            app.globalsManager.elementsInstances.push(this);
 
             if (properties) {
                 properties.globals = {
@@ -32,5 +38,5 @@
             __configureProperties.apply(this, [properties, config]);
         }
     });
-    
+
 })();
