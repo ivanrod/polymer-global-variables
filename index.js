@@ -1,6 +1,8 @@
 'use strict';
 
 (function() {
+    var __configureProperties = Polymer.Base._configureProperties;
+
     window.app = window.app || {};
 
     app.globalsManager = {
@@ -16,8 +18,6 @@
         }
     };
 
-    var originalConfigureProperties = Polymer.Base._configureProperties;
-
     Polymer.Base._addFeature({
         _configureProperties: function(properties, config) {
             app.globalsManager.elementInstances.push(this);
@@ -29,8 +29,8 @@
                 };
             }
 
-            originalConfigureProperties.apply(this, [properties, config]);
+            __configureProperties.apply(this, [properties, config]);
         }
-
     });
+    
 })();
