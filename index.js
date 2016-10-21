@@ -2,14 +2,18 @@
 
 (function() {
     if (!Polymer || !Polymer.Base) {
-        console.warn('Polymer is not loaded yet. polymer-global-variables cant be used.')
+        console.warn('Polymer is not loaded yet. polymer-global-variables cant be used.');
+        return;
+    }
+
+    if (Polymer.globalsManager) {
+        console.warn('Polymer.globalsManager already defined.');
+        return;
     }
 
     var __configureProperties = Polymer.Base._configureProperties;
 
-    window.app = window.app || {};
-
-    app.globalsManager = {
+    Polymer.globalsManager = {
         globals: {},
         elementsInstances: [],
 
@@ -26,12 +30,12 @@
 
     Polymer.Base._addFeature({
         _configureProperties: function(properties, config) {
-            app.globalsManager.elementsInstances.push(this);
+            Polymer.globalsManager.elementsInstances.push(this);
 
             if (properties) {
                 properties.globals = {
                     type: Object,
-                    value: app.globalsManager.globals
+                    value: Polymer.globalsManager.globals
                 };
             }
 
