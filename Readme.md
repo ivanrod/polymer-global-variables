@@ -18,11 +18,11 @@ With bower do:
 $ bower install --save polymer-global-variables
 ```
 
-Import the `index.js` file in your project main file:
+Import the `polymer-global-variables.js` or `polymer-global-variables.min.js` file in your project main file:
 
 *index.html*
 ```html
-<script src="bower_components/polymer-global-variables/index.js" charset="utf-8"></script>
+<script src="bower_components/polymer-global-variables/dist/polymer-global-variables.js" charset="utf-8"></script>
 ```
 
 ## Usage
