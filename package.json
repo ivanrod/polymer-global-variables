@@ -1,6 +1,6 @@
 {
   "name": "polymer-global-variables",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Polymer hack to share variables in every polymer element instance in your project",
   "main": "dist/polymer-global-variables.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "web components"
   ],
   "author": "Iván Rodriguez <frivanrodriguez@gmail.com>",
+  "repository": "https://github.com/ivanrod/polymer-global-variables",
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.1",
