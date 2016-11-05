@@ -10,7 +10,7 @@
   "keywords": [
     "polymer",
     "global variables",
-    "web components"
+    "web-components"
   ],
   "homepage": "https://github.com/ivanrod/polymer-global-variables",
   "ignore": [
