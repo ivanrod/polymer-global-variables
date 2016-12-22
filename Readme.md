@@ -65,6 +65,28 @@ Example:
 Polymer.globalsManager.set('myGlobalVariable', {foo: 'bar'});
 ```
 
+#### get(variableName:string)
+
+Get a global variable reference.
+
+Example:
+
+```javascript
+Polymer.globalsManager.get('myGlobalVariable');
+// { foo: 'bar' }
+```
+
+#### getAll()
+
+Get all global variables object.
+
+Example:
+
+```javascript
+Polymer.globalsManager.getAll();
+// { myGlobalVariable: { foo: 'bar'}, myOtherGlobalVariable: 'yep' }
+```
+
 ## License
 
 MIT © [ivanrod](https://github.com/ivanrod).

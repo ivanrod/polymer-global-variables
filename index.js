@@ -27,6 +27,22 @@
             }
 
             return this.globals;
+        },
+
+        get: function(key) {
+          var globalVariable = this.globals[key];
+
+          if (typeof globalVariable === 'undefined') {
+            console.warn('No global variable: ', key);
+
+            return;
+          }
+
+          return globalVariable;
+        },
+
+        getAll: function() {
+          return this.globals;
         }
     };
 
