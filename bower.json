@@ -1,6 +1,6 @@
 {
   "name": "polymer-global-variables",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Polymer hack to share variables in every polymer element instance in your project",
   "main": "dist/polymer-global-variables.js",
   "authors": [
