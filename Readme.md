@@ -50,8 +50,21 @@ This changes will be reflected in every component instance on your project:
 
 ...
 ```
-
 See an example in this [this repo](https://github.com/ivanrod/polymer-global-variables-demo).
+
+### Ignoring global properties
+
+If you need to ignore global properties and their changes in some specific component you can add a `ignoreGlobalProperties` flag to the component:
+
+*any-other-component.html*
+```javascript
+properties: {
+  ignoreGlobalProperties: {
+    type: Boolean,
+    value: true
+  }
+}
+```
 
 ## Polymer.globalsManager API
 
