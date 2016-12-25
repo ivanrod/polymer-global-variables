@@ -4,7 +4,10 @@
   "description": "Polymer hack to share variables in every polymer element instance in your project",
   "main": "dist/polymer-global-variables.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -r dist/*",
+    "build": "gulp build",
+    "release": "npm run clean && npm run build && git commit -a -m 'Build commit pre-release'  && npm version "
   },
   "keywords": [
     "Polymer",
